@@ -17,6 +17,8 @@ storeInfosCol = db.collection("storeInfos")
 
 server.get("/", (req, res) => {
 
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
     // res.send('bonjour')
 
     storeInfosCol.get().then(snapshot => {
@@ -34,4 +36,4 @@ server.get("/", (req, res) => {
 
 })
 
-server.listen(3000)
+server.listen(3001)
