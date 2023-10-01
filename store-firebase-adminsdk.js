@@ -1,4 +1,5 @@
 const { privateKey } = JSON.parse(process.env.PRIVATE_KEY);
+
   module.exports = {
     serviceAccount: {
         type: process.env.TYPE,
