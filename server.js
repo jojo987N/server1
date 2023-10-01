@@ -4,7 +4,6 @@ var server = express()
 require('dotenv').config();
 
 var admin = require('firebase-admin');
-// var serviceAccount = require('./store-f87d1-firebase-adminsdk-99z9e-0c43ba425a.json')
 var {serviceAccount} = require('./store-firebase-adminsdk.js')
 
 
