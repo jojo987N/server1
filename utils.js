@@ -1,4 +1,4 @@
-export function timeSince(date) {
+function timeSince(date) {
 
     var seconds = Math.floor((new Date() - date) / 1000);
   
@@ -27,3 +27,6 @@ export function timeSince(date) {
   }
 
   
+  module.exports = {
+    timeSince,
+ }
