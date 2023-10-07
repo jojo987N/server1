@@ -30,9 +30,9 @@ server.get("/", (req, res) => {
     // res.send('bonjour')
     // storeInfosCol.where('pubDate', '>', new Date('2023-10-01')).limit(20).get().then(snapshot => {
     
-    fs.writeFile('resultVideos.json', JSON.stringify({
-        id: 1, square:2
-    }), 'utf8', ()=>{});
+    // fs.writeFile('resultVideos.json', JSON.stringify({
+    //     id: 1, square:2
+    // }), 'utf8', ()=>{});
 
     res.send("OK")
 
@@ -71,5 +71,18 @@ server.get("/result", (req, res) => {
 
 })
 
+var bodyParser = require('body-parser')
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json())
+
+server.post("/", (req, res) => {
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    console.log('YES')
+    console.log(req.body)
+    fs.writeFile('resultVideos.json', JSON.stringify(req.body), 'utf8', ()=>{});
+
+})
 
 server.listen(3001)
