@@ -3,20 +3,20 @@ var server = express()
 
 require('dotenv').config();
 
-var admin = require('firebase-admin');
-var { serviceAccount } = require('./store-firebase-adminsdk.js');
+// Firebase
+// var admin = require('firebase-admin');
+// var { serviceAccount } = require('./store-firebase-adminsdk.js');
 const { timeSince } = require('./utils.js');
 
 var fs = require('fs');
 
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-})
-
-const db = admin.firestore();
-
-storeInfosCol = db.collection("storeInfos")
+// Firebase
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount)
+// })
+// const db = admin.firestore();
+// storeInfosCol = db.collection("storeInfos")
 
 // console.log(new Date('2017-12-25'))
 const options = { timeZone: 'Europe/London', timeZoneName: 'short' };
@@ -66,7 +66,7 @@ server.get("/result", (req, res) => {
 
     res.setHeader("Access-Control-Allow-Origin", "*");
 
-    res.send(resultVideos)
+    res.send(resultVideos.filter((v, i) => i < 20))
 
 
 })
