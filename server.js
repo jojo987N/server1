@@ -92,8 +92,9 @@ server.post("/", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     console.log('YES')
-    res.send(req.body.length)
+    console.log(req.body.length)
     fs.writeFile('resultVideos.json', JSON.stringify(req.body), 'utf8', ()=>{});
+    res.send("Good")
 
 })
 
@@ -102,8 +103,9 @@ server.post("/channels", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     console.log('YES')
-    res.send(req.body.length)
+    console.log(req.body.length)
     fs.writeFile('channels.json', JSON.stringify(req.body), 'utf8', ()=>{});
+    res.send("Good")
 
 })
 
