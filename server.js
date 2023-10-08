@@ -71,6 +71,18 @@ server.get("/result", (req, res) => {
 
 })
 
+server.get("/channels", (req, res) => {
+
+    const channels = require("./channels.json");
+
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    res.send(channels)
+
+
+})
+
 var bodyParser = require('body-parser')
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json())
@@ -80,7 +92,7 @@ server.post("/", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     console.log('YES')
-    console.log(req.body)
+    res.send(req.body.length)
     fs.writeFile('resultVideos.json', JSON.stringify(req.body), 'utf8', ()=>{});
 
 })
@@ -90,7 +102,7 @@ server.post("/channels", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     console.log('YES')
-    console.log(req.body)
+    res.send(req.body.length)
     fs.writeFile('channels.json', JSON.stringify(req.body), 'utf8', ()=>{});
 
 })
