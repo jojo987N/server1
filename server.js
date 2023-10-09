@@ -96,8 +96,8 @@ server.get("/channels", (req, res) => {
 })
 
 var bodyParser = require('body-parser')
-server.use(bodyParser.urlencoded({ extended: false }));
-server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
+server.use(bodyParser.json({limit: '50mb'}))
 
 server.post("/videos", (req, res) => {
 
