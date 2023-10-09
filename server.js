@@ -71,6 +71,18 @@ server.get("/result", (req, res) => {
 
 })
 
+server.get("/videos", (req, res) => {
+
+    const resultVideos = require("./resultVideos.json");
+
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    res.send(resultVideos)
+
+
+})
+
 server.get("/channels", (req, res) => {
 
     const channels = require("./channels.json");
@@ -87,7 +99,7 @@ var bodyParser = require('body-parser')
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json())
 
-server.post("/", (req, res) => {
+server.post("/videos", (req, res) => {
 
     res.setHeader("Access-Control-Allow-Origin", "*");
 
