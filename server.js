@@ -121,4 +121,15 @@ server.post("/channels", (req, res) => {
 
 })
 
+server.post("/news", (req, res) => {
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    console.log('YES')
+    console.log(req.body.length)
+    fs.writeFile('news.json', JSON.stringify(req.body), 'utf8', ()=>{});
+    res.send("Good")
+
+})
+
 server.listen(3001)
